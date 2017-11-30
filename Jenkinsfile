@@ -17,6 +17,6 @@ node {
     //   sh '/usr/local/bin/docker-machine ssh docker-sandbox docker stop webserver'
     //   sh '/usr/local/bin/docker-machine ssh docker-sandbox docker rm webserver'
     //   sh '/usr/local/bin/docker-machine ssh docker-sandbox docker pull gorbyo/docker-sems'
-    //   sh '/usr/local/bin/docker-machine ssh docker-sandbox docker run -d -p 5060-5079:5060-5079 --name semsserver gorbyo/docker-sems'
+    //   sh '/usr/local/bin/docker-machine ssh docker-sandbox docker run -d --net host --name semsserver gorbyo/docker-sems'
 
 }
