@@ -15,7 +15,7 @@ RUN yum groups remove 'Development Tools' -y \
     && yum remove  libevent-devel speex-devel opus-devel openssl-devel python-devel hiredis-devel libcurl-devel kernel-debug-devel kernel-headers yum-plugin-remove-with-leaves -y \
     && yum clean all \
     && rm -rf /var/cache/yum
-RUN useradd -M -r -u 996 -g 996 sems
+RUN groupadd -r -g 996 && useradd -M -r -u 996 -g 996 sems
 
 CMD ["/usr/local/sbin/sems", "-E", "-u sems", "-g sems",  "-f /usr/local/etc/sems/sems.conf"]
 
