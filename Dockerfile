@@ -17,6 +17,8 @@ RUN yum groups remove 'Development Tools' -y \
     && rm -rf /var/cache/yum
 RUN groupadd -r -g 996 sems && useradd -M -r -u 996 -g 996 sems
 
+COPY sems.conf /usr/local/etc/sems/sems.conf
+
 CMD ["/usr/local/sbin/sems", "-E", "-u sems", "-g sems",  "-f /usr/local/etc/sems/sems.conf"]
 
 STOPSIGNAL SIGTERM
