@@ -1,4 +1,4 @@
-# Version: 0.0.1
+# Version: 0.1.0
 FROM centos:latest
 MAINTAINER Oleh Horbachov <gorbyo@gmail.com>
 RUN yum clean all \
