@@ -1,9 +1,11 @@
-# docker-sems
+# Docker-SEMS
 
-Create container
+This is docker container for Sip Express Media Server (SEMS)
 
-/bin/docker pull gorbyo/docker-sems:latest
+### Load container
 
-Run docker
+    /bin/docker pull gorbyo/docker-sems:latest
 
-/bin/docker run --restart=always --net host --name sems_dock --mount type=bind,source=/usr/local/etc/sems,target=/usr/local/etc/sems gorbyo/docker-sems
+### Run container
+
+    /bin/docker run --restart=always --net host --name sems_dock --mount type=bind,source=/usr/local/etc/sems,target=/usr/local/etc/sems gorbyo/docker-sems
