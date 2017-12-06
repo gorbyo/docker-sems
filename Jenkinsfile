@@ -1,7 +1,11 @@
 node {
 
-    // stage 'Checkout'
-    //         checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/gorbyo/docker-sems.git']]])
+    stage 'Checkout'
+            checkout([
+              $class: 'GitSCM',
+              branches: scm.branches,
+              userRemoteConfigs: [[url: 'https://github.com/gorbyo/docker-sems.git']]
+              ])
 
 
     stage 'Build'
