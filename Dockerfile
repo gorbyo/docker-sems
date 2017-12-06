@@ -23,4 +23,4 @@ CMD ["/usr/local/sbin/sems", "-E", "-u", "sems", "-g", "sems",  "-f", "/usr/loca
 
 STOPSIGNAL SIGTERM
 
-EXPOSE 5060-5079/udp 8089/tcp
+EXPOSE 5060-5079/udp 8090/tcp
