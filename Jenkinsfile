@@ -1,7 +1,7 @@
 node {
 
-    stage 'Checkout'
-            checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/gorbyo/docker-sems.git']]])
+    // stage 'Checkout'
+    //         checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/gorbyo/docker-sems.git']]])
 
 
     stage 'Build'
@@ -10,7 +10,7 @@ node {
 
     stage 'Publish'
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("latest")
+            app.push("jenkins")
         }
 
     // stage 'Deploy'
