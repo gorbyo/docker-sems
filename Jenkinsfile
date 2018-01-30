@@ -1,12 +1,12 @@
 pipeline {
-  agent {
-    node { label 'my-docker' }
-  }
 
   stages {
     stage('Build Container') {
       agent {
-        dockerfile true
+        dockerfile {
+          filename 'Dockerfile'
+          additionalBuildArgs  '--tag gorbyo/docker-sems:${env.BUILD_NUMBER}'
+        }
       }
       steps {
         echo 'Hello World'
