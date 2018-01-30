@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Build Container') {
       steps {
-        sh echo "Building..."
+        sh 'echo "Building..."'
       }
       agent {
         dockerfile {
