@@ -9,7 +9,7 @@ RUN yum clean all \
     && yum clean all
 RUN git clone https://github.com/sems-server/sems.git
 RUN cd sems/ \
-    && git checkout tags/1.6.0
+    && git checkout tags/1.6.0 \
     && make all \
     && make install
 RUN yum groups remove 'Development Tools' -y \
