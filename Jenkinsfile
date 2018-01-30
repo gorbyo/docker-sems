@@ -1,13 +1,13 @@
 pipeline {
   agent {
-    dockerfile {
-      filename 'Dockerfile'
-      label 'docker-sems'
-    }
+    node { label 'my-docker' }
   }
 
   stages {
     stage('Build Container') {
+      agent {
+        dockerfile true
+      }
       steps {
         echo 'Hello World'
         // def app = docker.build "gorbyo/docker-sems:${env.BUILD_NUMBER}"
