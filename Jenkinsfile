@@ -7,12 +7,9 @@ pipeline {
     stage('Build Container') {
       agent {
         dockerfile {
-          args  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
+          additionalBuildArgs  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
         }
       }
-      steps {
-                echo 'Building..'
-            }
     }
 
     // stage('Publish Container') {
