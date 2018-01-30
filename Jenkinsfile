@@ -5,7 +5,7 @@ pipeline {
       agent {
         dockerfile {
           filename 'Dockerfile'
-          additionalBuildArgs  '--tag gorbyo/docker-sems:${env.BUILD_NUMBER}'
+          additionalBuildArgs  '--tag gorbyo/docker-sems'
         }
       }
       steps {
