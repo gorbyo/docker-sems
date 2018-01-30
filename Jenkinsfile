@@ -10,6 +10,9 @@ pipeline {
           args  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
         }
       }
+      steps {
+                echo 'Building..'
+            }
     }
 
     // stage('Publish Container') {
