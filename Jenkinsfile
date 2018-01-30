@@ -5,6 +5,9 @@ pipeline {
   }
   stages {
     stage('Build Container') {
+      steps {
+        sh echo "Building..."
+      }
       agent {
         dockerfile {
           additionalBuildArgs  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
