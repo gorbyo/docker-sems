@@ -7,19 +7,21 @@ pipeline {
     stage('Build Container') {
       agent {
         dockerfile {
-          filename 'Dockerfile'
-          additionalBuildArgs  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
+          dockerfile true
+          args  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
         }
       }
-      steps {
-        echo 'Hello World'
-        // def app = docker.build "gorbyo/docker-sems:${env.BUILD_NUMBER}"
-      }
     }
-  }
-    // stage 'Publish'
-    //     docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-    //         app.push("jenkins")
-    //     }
 
+    // stage('Publish Container') {
+    //   agent {
+    //     docker {
+    //       label 'docker'
+    //       image 'gorbyo/docker-sems:jenkins'
+    //       registryUrl 'https://registry.hub.docker.com'
+    //       registryCredentialsId 'docker-hub-credentials'
+    //     }
+    //   }
+    // }
+  }
 }
