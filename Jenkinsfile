@@ -9,9 +9,10 @@ pipeline {
         sh 'echo "Building $BUILD_ID..."'
       }
       agent {
-        dockerfile {
-          additionalBuildArgs  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
-        }
+        dockerfile true
+        // {
+        //   additionalBuildArgs  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
+        // }
       }
     }
 
