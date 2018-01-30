@@ -1,11 +1,14 @@
 pipeline {
   agent any
+  options {
+       ansiColor colorMapName: 'XTerm'
+  }
   stages {
     stage('Build Container') {
       agent {
         dockerfile {
           filename 'Dockerfile'
-          additionalBuildArgs  '--tag gorbyo/docker-sems'
+          additionalBuildArgs  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
         }
       }
       steps {
