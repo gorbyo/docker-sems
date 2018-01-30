@@ -2,7 +2,7 @@ pipeline {
   agent {
     dockerfile {
       filename 'Dockerfile'
-      label 'gorbyo/docker-sems:${env.BUILD_NUMBER}'
+      label 'docker-sems'
     }
   }
 
