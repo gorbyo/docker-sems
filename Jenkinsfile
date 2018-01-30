@@ -7,7 +7,6 @@ pipeline {
     stage('Build Container') {
       agent {
         dockerfile {
-          dockerfile true
           args  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
         }
       }
