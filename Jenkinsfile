@@ -1,22 +1,32 @@
-node {
+pipeline {
+  agent any
+  options {
+       ansiColor colorMapName: 'XTerm'
+  }
+  stages {
+    stage('Build Container') {
+      steps {
+        sh 'echo "Building $BUILD_ID..."'
+      }
+      agent {
+        dockerfile true
+        // {
+        //   additionalBuildArgs  '--tag gorbyo/docker-sems:$BUILD_NUMBER'
+        // }
+      }
+    }
 
-    stage 'Checkout'
-            checkout scm
-
-
-    stage 'Build'
-        def app = docker.build "gorbyo/docker-sems:${env.BUILD_NUMBER}"
-
-
-    stage 'Publish'
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("jenkins")
-        }
-
-    // stage 'Deploy'
-    //   sh '/usr/local/bin/docker-machine ssh docker-sandbox docker stop webserver'
-    //   sh '/usr/local/bin/docker-machine ssh docker-sandbox docker rm webserver'
-    //   sh '/usr/local/bin/docker-machine ssh docker-sandbox docker pull gorbyo/docker-sems'
-    //   sh '/usr/local/bin/docker-machine ssh docker-sandbox docker run -d --net host --name semsserver gorbyo/docker-sems'
-
+    // stage('Publish Container') {
+    //   steps {
+    //     sh 'echo "Publishing $BUILD_ID..."'
+    //   }
+    //   agent {
+    //     docker {
+    //       image 'gorbyo/docker-sems:jenkins'
+    //       registryUrl 'https://registry.hub.docker.com'
+    //       registryCredentialsId 'docker-hub-credentials'
+    //     }
+    //   }
+    // }
+  }
 }
