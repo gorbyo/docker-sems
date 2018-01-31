@@ -22,7 +22,6 @@ pipeline {
       }
       agent {
         docker {
-          label 'docker'
           image 'gorbyo/docker-sems:jenkins'
           registryUrl 'https://registry.hub.docker.com'
           registryCredentialsId 'docker-hub-credentials'
