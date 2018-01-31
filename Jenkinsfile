@@ -17,6 +17,9 @@ pipeline {
     }
 
     stage('Publish Container') {
+      steps {
+        sh 'echo "Publishing $BUILD_ID..."'
+      }
       agent {
         docker {
           label 'docker'
