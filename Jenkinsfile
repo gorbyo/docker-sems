@@ -16,15 +16,15 @@ pipeline {
       }
     }
 
-    // stage('Publish Container') {
-    //   agent {
-    //     docker {
-    //       label 'docker'
-    //       image 'gorbyo/docker-sems:jenkins'
-    //       registryUrl 'https://registry.hub.docker.com'
-    //       registryCredentialsId 'docker-hub-credentials'
-    //     }
-    //   }
-    // }
+    stage('Publish Container') {
+      agent {
+        docker {
+          label 'docker'
+          image 'gorbyo/docker-sems:jenkins'
+          registryUrl 'https://registry.hub.docker.com'
+          registryCredentialsId 'docker-hub-credentials'
+        }
+      }
+    }
   }
 }
