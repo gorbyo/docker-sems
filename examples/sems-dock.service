@@ -4,7 +4,7 @@ Requires=docker.service
 
 [Service]
 ExecStartPre=/bin/docker pull gorbyo/docker-sems:latest
-ExecStart=/bin/docker run --restart=always --net host --name sems_dock --mount type=bind,source=/usr/local/etc/sems,target=/usr/local/etc/sems gorbyo/docker-sems
+ExecStart=/bin/docker run -t --restart=always --net host --name sems_dock --mount type=bind,source=/usr/local/etc/sems,target=/usr/local/etc/sems gorbyo/docker-sems
 ExecStop=/bin/docker stop sems_dock
 ExecStopPost=/bin/docker rm -f sems_dock
 ExecReload=/bin/docker restart sems_dock
