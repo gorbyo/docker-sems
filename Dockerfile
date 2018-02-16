@@ -1,4 +1,4 @@
-# Version: 0.1.1
+# Version: 0.1.2
 FROM centos:7
 MAINTAINER Oleh Horbachov <gorbyo@gmail.com>
 RUN yum clean all \
@@ -19,6 +19,10 @@ RUN yum groups remove 'Development Tools' -y \
 RUN groupadd -r -g 996 sems && useradd -M -r -u 996 -g 996 sems
 
 COPY sems.conf /usr/local/etc/sems/sems.conf
+
+# forward request and error logs to docker log collector
+RUN ln -sf /dev/stdout /var/log/sems_stdout.log \
+	&& ln -sf /dev/stderr /var/log/sems_stderr.log
 
 CMD ["/usr/local/sbin/sems", "-E", "-u", "sems", "-g", "sems",  "-f", "/usr/local/etc/sems/sems.conf"]
 
