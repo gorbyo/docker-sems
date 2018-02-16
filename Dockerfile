@@ -1,5 +1,5 @@
 # Version: 0.1.1
-FROM centos:latest
+FROM centos:7
 MAINTAINER Oleh Horbachov <gorbyo@gmail.com>
 RUN yum clean all \
     && yum update -y \
